@@ -24,45 +24,7 @@ This E-Commerce platform is a console-based Java application that integrates wit
 
 css
 Copy code
-ecommerce-platform/
-├── pom.xml
-├── documentation/
-│ ├── User_Documentation.md
-│ ├── Product_Documentation.md
-│ ├── Development_Documentation.md
-│ ├── Deployment_Documentation.md
-│ └── Team_Contributions.md
-├── presentation/
-│ └── presentation_video.mp4
-└── src/
-├── main/
-│ ├── java/
-│ │ ├── Admin.java
-│ │ ├── AdminMenu.java
-│ │ ├── Buyer.java
-│ │ ├── DBConnection.java
-│ │ ├── MainMenu.java
-│ │ ├── Product.java
-│ │ ├── ProductMenu.java
-│ │ ├── ProductService.java
-│ │ ├── ProductDAO.java
-│ │ ├── ProductDAOImpl.java
-│ │ ├── Seller.java
-│ │ ├── User.java
-│ │ ├── UserDAO.java
-│ │ ├── UserDAOImpl.java
-│ │ ├── UserMenu.java
-│ │ ├── UserService.java
-│ │ └── UserServiceImpl.java
-│ └── resources/
-│ ├── application.properties
-│ ├── schema.sql
-│ └── data.sql
-└── test/
-└── java/
-├── AdminServiceTest.java
-├── ProductServiceTest.java
-└── UserServiceTest.java
+
 Building the Project
 Navigate to the project directory:
 bash
