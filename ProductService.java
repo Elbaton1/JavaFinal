@@ -1,15 +1,27 @@
+import java.util.Arrays;
+
 public class ProductService {
-    private Product[] products = new Product[10]; // Fixed initial size
-    private int count = 0; // Tracks the number of products
+    private Product[] products; 
+    private int count;         
+    // Constructor
+    public ProductService() {
+        this.products = new Product[10]; // Initial capacity of 10
+        this.count = 0;
+    }
 
     // Add a product
     public void addProduct(Product product) {
-        if (count == products.length) {
-            // Resize the array if full
-            Product[] newProducts = new Product[products.length * 2];
-            System.arraycopy(products, 0, newProducts, 0, products.length);
-            products = newProducts;
+        if (product == null) {
+            System.out.println("Cannot add null product!");
+            return;
         }
+
+        // Check if the array is full and resize if necessary
+        if (count == products.length) {
+            resizeArray();
+        }
+
+       
         products[count++] = product;
         System.out.println("Product added successfully: " + product);
     }
@@ -30,9 +42,9 @@ public class ProductService {
     public void deleteProduct(int id) {
         for (int i = 0; i < count; i++) {
             if (products[i].getId() == id) {
-                // Shift elements to the left
+                // Shift elements to the left to remove the product
                 System.arraycopy(products, i + 1, products, i, count - i - 1);
-                products[--count] = null;
+                products[--count] = null; // Clear the last element
                 System.out.println("Product deleted successfully with ID: " + id);
                 return;
             }
@@ -47,21 +59,31 @@ public class ProductService {
                 return products[i];
             }
         }
+        System.out.println("Product not found with ID: " + id);
         return null;
     }
 
     // Get all products
     public Product[] getAllProducts() {
-        Product[] result = new Product[count];
-        System.arraycopy(products, 0, result, 0, count);
-        return result;
+        return Arrays.copyOf(products, count); // Return a copy of the active products
     }
 
-    public Product[] getProducts() {
-        return products;
+    // Resize the internal array
+    private void resizeArray() {
+        products = Arrays.copyOf(products, products.length * 2);
+        System.out.println("Resized the products array to: " + products.length);
     }
 
-    public void setProducts(Product[] products) {
-        this.products = products;
+    // Display all products
+    public void displayAllProducts() {
+        if (count == 0) {
+            System.out.println("No products available.");
+            return;
+        }
+
+        System.out.println("Listing all products:");
+        for (int i = 0; i < count; i++) {
+            System.out.println(products[i]);
+        }
     }
 }
