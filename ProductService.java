@@ -1,20 +1,24 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class ProductService {
-    private List<Product> products = new ArrayList<>(); // Mock in-memory storage
+    private Product[] products = new Product[10]; // Fixed initial size
+    private int count = 0; // Tracks the number of products
 
-    // Add a new product
+    // Add a product
     public void addProduct(Product product) {
-        products.add(product);
+        if (count == products.length) {
+            // Resize the array if full
+            Product[] newProducts = new Product[products.length * 2];
+            System.arraycopy(products, 0, newProducts, 0, products.length);
+            products = newProducts;
+        }
+        products[count++] = product;
         System.out.println("Product added successfully: " + product);
     }
 
-    // Update an existing product
+    // Update a product by ID
     public void updateProduct(int id, Product updatedProduct) {
-        for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getId() == id) {
-                products.set(i, updatedProduct);
+        for (int i = 0; i < count; i++) {
+            if (products[i].getId() == id) {
+                products[i] = updatedProduct;
                 System.out.println("Product updated successfully: " + updatedProduct);
                 return;
             }
@@ -24,24 +28,40 @@ public class ProductService {
 
     // Delete a product by ID
     public void deleteProduct(int id) {
-        boolean removed = products.removeIf(product -> product.getId() == id);
-        if (removed) {
-            System.out.println("Product deleted successfully with ID: " + id);
-        } else {
-            System.out.println("Product not found with ID: " + id);
+        for (int i = 0; i < count; i++) {
+            if (products[i].getId() == id) {
+                // Shift elements to the left
+                System.arraycopy(products, i + 1, products, i, count - i - 1);
+                products[--count] = null;
+                System.out.println("Product deleted successfully with ID: " + id);
+                return;
+            }
         }
+        System.out.println("Product not found with ID: " + id);
     }
 
     // Get a product by ID
     public Product getProductById(int id) {
-        return products.stream()
-                .filter(product -> product.getId() == id)
-                .findFirst()
-                .orElse(null);
+        for (int i = 0; i < count; i++) {
+            if (products[i].getId() == id) {
+                return products[i];
+            }
+        }
+        return null;
     }
 
-    // Get a list of all products
-    public List<Product> getAllProducts() {
-        return new ArrayList<>(products);
+    // Get all products
+    public Product[] getAllProducts() {
+        Product[] result = new Product[count];
+        System.arraycopy(products, 0, result, 0, count);
+        return result;
+    }
+
+    public Product[] getProducts() {
+        return products;
+    }
+
+    public void setProducts(Product[] products) {
+        this.products = products;
     }
 }
