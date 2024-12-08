@@ -51,18 +51,21 @@ This will launch the application’s main menu.
 ```
 
 Usage
+
 From the main menu, select:
-1 for User Menu (Register/Login)
-2 for Admin Menu
-3 for Product Menu
-4 to Exit
+
+1. for User Menu (Register/Login)
+2. for Admin Menu
+3. for Product Menu
+4. to Exit
+
 Follow the prompts to register new users, log in, manage products, and so on.
 
 Further Documentation
 See the documentation/ folder for:
 
-User_Documentation.md: How to use each feature.
-Product_Documentation.md: Explanation of product classes and features.
-Development_Documentation.md: Code structure, build steps, development standards.
-Deployment_Documentation.md: Detailed instructions on installing and running the app on a fresh environment.
-Team_Contributions.md: Who did what, branch info, and project management details.
+1.  User_Documentation.md: How to use each feature.
+2.  Product_Documentation.md: Explanation of product classes and features.
+3.  Development_Documentation.md: Code structure, build steps, development standards.
+4.  Deployment_Documentation.md: Detailed instructions on installing and running the app on a fresh environment.
+5.  Team_Contributions.md: Who did what, branch info, and project management details.
