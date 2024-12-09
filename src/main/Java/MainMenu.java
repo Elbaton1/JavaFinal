@@ -5,9 +5,12 @@ public class MainMenu {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        // Initialize DAO and Service Layers
         UserDAO userDAO = new UserDAOImpl();
         UserService userService = new UserServiceImpl(userDAO);
-        ProductService productService = new ProductService();
+        ProductDAO productDAO = new ProductDAOImpl();
+        ProductService productService = new ProductService(productDAO); // Updated to use ProductDAO
         AdminService adminService = new AdminServiceImpl(userService, productService);
 
         int choice;
@@ -23,7 +26,7 @@ public class MainMenu {
                 choice = sc.nextInt();
                 sc.nextLine();
 
-                switch(choice) {
+                switch (choice) {
                     case 1:
                         UserMenu userMenu = new UserMenu(userService);
                         currentUser = userMenu.showMenu();
@@ -38,23 +41,30 @@ public class MainMenu {
             } else {
                 // Logged in
                 String role = currentUser.getRole();
-                if (role.equals("admin")) {
-                    AdminMenu adminMenu = new AdminMenu(adminService);
-                    adminMenu.showMenu();
-                    currentUser = null; // after logout
-                } else if (role.equals("buyer")) {
-                    BuyerMenu buyerMenu = new BuyerMenu(productService);
-                    buyerMenu.showMenu();
-                    currentUser = null; // after logout
-                } else if (role.equals("seller")) {
-                    // Pass the currentUser into SellerMenu so we can enforce ownership checks
-                    SellerMenu sellerMenu = new SellerMenu(productService, currentUser);
-                    sellerMenu.showMenu();
-                    currentUser = null; // after logout
-                } else {
-                    System.out.println("❌ Unknown role. Logging out...");
-                    currentUser = null;
+                switch (role) {
+                    case "admin":
+                        AdminMenu adminMenu = new AdminMenu(adminService);
+                        adminMenu.showMenu();
+                        currentUser = null; // After logout
+                        break;
+                    case "buyer":
+                        BuyerMenu buyerMenu = new BuyerMenu(productService);
+                        buyerMenu.showMenu();
+                        currentUser = null; // After logout
+                        break;
+                    case "seller":
+                        // Pass the currentUser into SellerMenu so we can enforce ownership checks
+                        SellerMenu sellerMenu = new SellerMenu(productService, currentUser);
+                        sellerMenu.showMenu();
+                        currentUser = null; // After logout
+                        break;
+                    default:
+                        System.out.println("❌ Unknown role. Logging out...");
+                        currentUser = null;
+                        break;
                 }
+
+                // Reset choice to allow relogin
                 choice = (currentUser == null) ? 0 : -1;
             }
         } while (choice != 2);
