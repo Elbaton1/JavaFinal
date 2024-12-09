@@ -2,7 +2,7 @@ public class ProductService {
     private ProductDAO productDAO;
 
     // Constructor to initialize the DAO
-    public ProductServiceImpl(ProductDAO productDAO) {
+    public ProductService(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
 
