@@ -25,7 +25,7 @@ public class SellerMenu {
             choice = sc.nextInt();
             sc.nextLine();
 
-            switch(choice) {
+            switch (choice) {
                 case 1:
                     addProduct(sc);
                     break;
@@ -36,7 +36,7 @@ public class SellerMenu {
                     deleteProduct(sc);
                     break;
                 case 4:
-                    productService.displayAllProducts();
+                    displayAllProducts();
                     break;
                 case 5:
                     System.out.println(" Logging out...");
@@ -44,13 +44,10 @@ public class SellerMenu {
                 default:
                     System.out.println(" Invalid choice!");
             }
-        } while(choice != 5);
+        } while (choice != 5);
     }
 
     private void addProduct(Scanner sc) {
-        System.out.print("Enter Product ID: ");
-        int id = sc.nextInt();
-        sc.nextLine(); 
         System.out.print("Enter Product Name: ");
         String name = sc.nextLine();
         System.out.print("Enter Product Price: ");
@@ -61,8 +58,11 @@ public class SellerMenu {
         // Use the currently logged-in seller's ID
         int sellerId = currentUser.getId();
 
-        Product product = new Product(id, name, price, quantity, sellerId);
-        productService.addProduct(product);
+        if (productService.addProduct(name, price, quantity, sellerId)) {
+            System.out.println("Product added successfully!");
+        } else {
+            System.out.println("Failed to add product.");
+        }
     }
 
     private void updateProduct(Scanner sc) {
@@ -89,9 +89,11 @@ public class SellerMenu {
         System.out.print("Enter Updated Product Quantity: ");
         int quantity = sc.nextInt();
 
-        // Keep the sellerId as the currentUser's ID
-        Product updatedProduct = new Product(id, name, price, quantity, currentUser.getId());
-        productService.updateProduct(id, updatedProduct);
+        if (productService.updateProduct(id, name, price, quantity, currentUser.getId())) {
+            System.out.println("Product updated successfully!");
+        } else {
+            System.out.println("Failed to update product.");
+        }
     }
 
     private void deleteProduct(Scanner sc) {
@@ -110,6 +112,22 @@ public class SellerMenu {
             return;
         }
 
-        productService.deleteProduct(id);
+        if (productService.deleteProduct(id, currentUser.getId())) {
+            System.out.println("Product deleted successfully!");
+        } else {
+            System.out.println("Failed to delete product.");
+        }
+    }
+
+    private void displayAllProducts() {
+        Product[] products = productService.getAllProducts();
+        if (products.length == 0) {
+            System.out.println("No products available.");
+        } else {
+            System.out.println("Listing all products:");
+            for (Product product : products) {
+                System.out.println(product);
+            }
+        }
     }
 }
