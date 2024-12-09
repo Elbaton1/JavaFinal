@@ -32,7 +32,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void viewAllProducts() {
-        productService.displayAllProducts();
+        productService.getAllProducts();
     }
 }
 

@@ -1,7 +1,7 @@
 public interface ProductDAO {
     boolean addProduct(Product product);
-    Product getProductById(int id);
-    Product[] getAllProducts();
-    boolean deleteProduct(int id);
     boolean updateProduct(Product product);
+    boolean deleteProduct(int productId);
+    Product getProductById(int productId);
+    Product[] getAllProducts();
 }

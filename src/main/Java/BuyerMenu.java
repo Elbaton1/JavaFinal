@@ -23,7 +23,7 @@ public class BuyerMenu {
 
             switch (choice) {
                 case 1:
-                    productService.displayAllProducts();
+                    productService.getAllProducts();
                     break;
                 case 2:
                     System.out.print("Enter Product ID: ");
