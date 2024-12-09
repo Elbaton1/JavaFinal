@@ -13,11 +13,11 @@ public class UserMenu {
         int choice;
         do {
             System.out.println("\n======================");
-            System.out.println("👤 User Menu");
+            System.out.println(" User Menu");
             System.out.println("======================");
-            System.out.println("1. Register ✏️");
-            System.out.println("2. Login 🔑");
-            System.out.println("3. Back to Main 🚪");
+            System.out.println("1. Register ");
+            System.out.println("2. Login ");
+            System.out.println("3. Back to Main ");
             System.out.print("Choose: ");
             choice = sc.nextInt();
             sc.nextLine();
@@ -34,9 +34,9 @@ public class UserMenu {
                     String r = sc.nextLine().toLowerCase();
 
                     if(userService.registerUser(u, p, e, r)) {
-                        System.out.println("✅ Registered successfully!");
+                        System.out.println(" Registered successfully!");
                     } else {
-                        System.out.println("❌ Registration failed. User may already exist.");
+                        System.out.println(" Registration failed. User may already exist.");
                     }
                     break;
                 case 2:
@@ -46,17 +46,17 @@ public class UserMenu {
                     String lp = sc.nextLine();
                     loggedInUser = userService.loginUser(lu, lp);
                     if(loggedInUser != null) {
-                        System.out.println("✅ Login successful! Hello, " + loggedInUser.getUsername() + " 🎉");
+                        System.out.println(" Login successful! Hello, " + loggedInUser.getUsername());
                         return loggedInUser;
                     } else {
-                        System.out.println("❌ Login failed. Invalid credentials.");
+                        System.out.println(" Login failed. Invalid credentials.");
                     }
                     break;
                 case 3:
-                    System.out.println("🔙 Returning to main menu...");
+                    System.out.println(" Returning to main menu...");
                     return null;
                 default:
-                    System.out.println("❌ Invalid choice! Try again.");
+                    System.out.println(" Invalid choice! Try again.");
             }
         } while (loggedInUser == null);
 

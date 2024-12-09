@@ -12,12 +12,12 @@ public class AdminMenu {
         int choice;
         do {
             System.out.println("\n======================");
-            System.out.println("💼 Admin Menu");
+            System.out.println(" Admin Menu");
             System.out.println("======================");
-            System.out.println("1. View Users 👥");
-            System.out.println("2. Delete User 🗑️");
-            System.out.println("3. View Products 📦");
-            System.out.println("4. Logout 🔒");
+            System.out.println("1. View Users ");
+            System.out.println("2. Delete User ");
+            System.out.println("3. View Products ");
+            System.out.println("4. Logout ");
             System.out.print("Choose an option: ");
             choice = sc.nextInt();
             sc.nextLine(); 
@@ -35,10 +35,10 @@ public class AdminMenu {
                     adminService.viewAllProducts();
                     break;
                 case 4:
-                    System.out.println("🔙 Logging out...");
+                    System.out.println(" Logging out...");
                     break;
                 default:
-                    System.out.println("❌ Invalid choice! Please try again.");
+                    System.out.println(" Invalid choice! Please try again.");
             }
         } while (choice != 4);
     }

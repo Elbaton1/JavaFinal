@@ -15,10 +15,10 @@ public class MainMenu {
             if (currentUser == null) {
                 // Not logged in
                 System.out.println("\n======================");
-                System.out.println("🏪 Welcome to the E-Commerce Platform");
+                System.out.println(" Welcome to the E-Commerce Platform");
                 System.out.println("======================");
                 System.out.println("1. User Menu (Register/Login)");
-                System.out.println("2. Exit 🚪");
+                System.out.println("2. Exit ");
                 System.out.print("Choose an option: ");
                 choice = sc.nextInt();
                 sc.nextLine();
@@ -30,10 +30,10 @@ public class MainMenu {
                         // If user logs in successfully, currentUser will not be null
                         break;
                     case 2:
-                        System.out.println("👋 Exiting... Goodbye!");
+                        System.out.println(" Exiting... Goodbye!");
                         break;
                     default:
-                        System.out.println("❌ Invalid choice! Please try again.");
+                        System.out.println(" Invalid choice! Please try again.");
                 }
             } else {
                 // Logged in
@@ -51,7 +51,7 @@ public class MainMenu {
                     sellerMenu.showMenu();
                     currentUser = null; // after logout
                 } else {
-                    System.out.println("❌ Unknown role. Logging out...");
+                    System.out.println(" Unknown role. Logging out...");
                     currentUser = null;
                 }
                 choice = (currentUser == null) ? 0 : -1;
@@ -59,6 +59,6 @@ public class MainMenu {
         } while (choice != 2);
 
         sc.close();
-        System.out.println("👋 Goodbye!");
+        System.out.println(" Goodbye!");
     }
 }

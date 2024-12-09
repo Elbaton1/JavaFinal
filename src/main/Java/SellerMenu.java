@@ -14,11 +14,11 @@ public class SellerMenu {
             System.out.println("\n======================");
             System.out.println("🛒 Seller Menu");
             System.out.println("======================");
-            System.out.println("1. Add Product ➕");
-            System.out.println("2. Update Product ♻️");
-            System.out.println("3. Delete Product 🗑️");
-            System.out.println("4. View All Products 📦");
-            System.out.println("5. Logout 🔒");
+            System.out.println("1. Add Product ");
+            System.out.println("2. Update Product ");
+            System.out.println("3. Delete Product ");
+            System.out.println("4. View All Products ");
+            System.out.println("5. Logout ");
             System.out.print("Choose an option: ");
             choice = sc.nextInt();
             sc.nextLine();
@@ -37,10 +37,10 @@ public class SellerMenu {
                     productService.displayAllProducts();
                     break;
                 case 5:
-                    System.out.println("🔙 Logging out...");
+                    System.out.println(" Logging out...");
                     break;
                 default:
-                    System.out.println("❌ Invalid choice!");
+                    System.out.println(" Invalid choice!");
             }
         } while(choice != 5);
     }
