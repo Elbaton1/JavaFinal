@@ -1,4 +1,3 @@
-
 import org.mindrot.jbcrypt.BCrypt;
 
 public class UserServiceImpl implements UserService {
@@ -25,5 +24,15 @@ public class UserServiceImpl implements UserService {
             return user;
         }
         return null;
+    }
+
+    @Override
+    public User[] getAllUsers() {
+        return userDAO.getAllUsers();
+    }
+
+    @Override
+    public boolean deleteUser(String username) {
+        return userDAO.deleteUser(username);
     }
 }

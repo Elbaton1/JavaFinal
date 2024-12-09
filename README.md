@@ -1,5 +1,7 @@
 # E-Commerce Platform
 
+by : Adam Sparkes and Michael O'brien
+
 ## Overview
 
 This E-Commerce platform is a console-based Java application that integrates with PostgreSQL for data storage. Users can register as buyers, sellers, or admins, and each role has specific functionalities:
@@ -49,8 +51,6 @@ Copy code
 java -cp target/ecommerce-platform-1.0-SNAPSHOT-jar-with-dependencies.jar MainMenu
 This will launch the application’s main menu.
 ```
-
-Usage
 
 From the main menu, select:
 
