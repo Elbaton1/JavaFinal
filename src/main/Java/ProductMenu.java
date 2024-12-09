@@ -46,7 +46,7 @@ public class ProductMenu {
     private void addProduct() {
         System.out.print("Enter Product ID: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
         System.out.print("Enter Product Name: ");
         String name = scanner.nextLine();
         System.out.print("Enter Product Price: ");
@@ -63,7 +63,7 @@ public class ProductMenu {
     private void updateProduct() {
         System.out.print("Enter Product ID to Update: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         System.out.print("Enter Updated Product Name: ");
         String name = scanner.nextLine();
         System.out.print("Enter Updated Product Price: ");
