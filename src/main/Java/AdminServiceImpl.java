@@ -11,9 +11,9 @@ public class AdminServiceImpl implements AdminService {
     public void viewUsers() {
         User[] users = userService.getAllUsers();
         if (users == null || users.length == 0) {
-            System.out.println("❌ No users found.");
+            System.out.println(" No users found.");
         } else {
-            System.out.println("\n👥 List of Users:");
+            System.out.println("\n List of Users:");
             for (User user : users) {
                 System.out.println(user);
             }
@@ -24,9 +24,9 @@ public class AdminServiceImpl implements AdminService {
     public void deleteUser(String username) {
         boolean success = userService.deleteUser(username);
         if (success) {
-            System.out.println("✅ User " + username + " deleted successfully.");
+            System.out.println(" User " + username + " deleted successfully.");
         } else {
-            System.out.println("❌ User " + username + " not found.");
+            System.out.println(" User " + username + " not found.");
         }
     }
 
