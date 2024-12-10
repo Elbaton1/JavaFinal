@@ -17,40 +17,49 @@ This E-Commerce platform is a console-based Java application that integrates wit
 - **PostgreSQL** running, with a database named `ecommerce` created.
   For example:
 
-  ```bash
+```bash
   psql -U postgres -c "CREATE DATABASE ecommerce;"
   psql -U postgres -d ecommerce -f src/main/resources/schema.sql
   psql -U postgres -d ecommerce -f src/main/resources/data.sql
-
-  ```
+```
 
 Building the Project
 Navigate to the project directory:
 
-```bash
+The paths used here are jusat examples you will ned to change this to the path in your computer.
+
 Copy code
+
+```bash
 cd C:\Users\mobri\Documents\School\ecommerce-platform
+```
+
 Run Maven build:
-```
+Copy code
 
 ```bash
-Copy code
 mvn clean install
-or, if mvn is not on PATH:
 ```
 
-```bash
+or, if mvn is not on PATH:
+
+Same thing here you will need to change the path ie "C:\Users\mobri\Downloads\" but you can leave this "apache-maven-3.9.9-bin\apache-maven-3.9.9\bin\mvn.cmd" the same.
 Copy code
+
+```bash
 & "C:\Users\mobri\Downloads\apache-maven-3.9.9-bin\apache-maven-3.9.9\bin\mvn.cmd" clean install
+```
+
 Running the Application
 After a successful build, run:
-```
+
+Copy code
 
 ```bash
-Copy code
 java -cp target/ecommerce-platform-1.0-SNAPSHOT-jar-with-dependencies.jar MainMenu
-This will launch the application’s main menu.
 ```
+
+This will launch the application’s main menu.
 
 From the main menu, select:
 
