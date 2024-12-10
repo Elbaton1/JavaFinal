@@ -70,6 +70,6 @@ public class MainMenu {
         } while (choice != 2);
 
         sc.close();
-        System.out.println("👋 Goodbye!");
+        System.out.println("Later bro");
     }
 }
