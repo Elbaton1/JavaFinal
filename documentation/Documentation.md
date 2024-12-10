@@ -159,9 +159,7 @@ java -cp target/ecommerce-platform-1.0-SNAPSHOT-jar-with-dependencies.jar MainMe
 
 # Expected Result:
 
-======================
 Welcome to the E-Commerce Platform
-======================
 
 1. User Menu (Register/Login)
 2. Exit
