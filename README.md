@@ -26,7 +26,7 @@ This E-Commerce platform is a console-based Java application that integrates wit
 Building the Project
 Navigate to the project directory:
 
-The paths used here are jusat examples you will ned to change this to the path in your computer.
+The paths used here are just examples you will ned to change this to the path in your computer.
 
 Copy code
 
