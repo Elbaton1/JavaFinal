@@ -4,9 +4,11 @@ Adam Sparkes.
 During this project many of the files written were completed together, with the exception of me primarily designing the Product Files,
 Product.java, ProductDAO.java, ProductDAOImpl.java, ProductService.java aswell as the Seller Menu, database connections and table
 creations for all of the Products. The User files were mostly completed by Mike. I also had a hand in the creation of the Admin and Buyer files
-simply helping with bulk code writing for as they are just subclasses of User to save time.
+simply helping with bulk code writing for as they are just subclasses of User to save time. The database was created on both Computers and both
+members of the team were present during the query writings and can be attributed to both members.
 
 I had some issues with bugs popping up when connecting then products to the database, mostly just syntax errors that were worked out
 over time and testing. As for small issues working with Michael most of the time solved them as our knowledge overlaps well and many things
 that I struggled with he had a good grasp on and vice versa, he would come to me with any small issues in method creation that I had
 a slightly more in depth understanding of.
+
