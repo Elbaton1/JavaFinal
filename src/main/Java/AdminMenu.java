@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class AdminMenu {
+    private ProductService productService;
     private AdminService adminService;
 
-    // Constructor that accepts both AdminService and ProductService
     public AdminMenu(AdminService adminService, ProductService productService) {
         this.adminService = adminService;
         this.productService = productService;
@@ -34,7 +34,7 @@ public class AdminMenu {
                     adminService.deleteUser(username);
                     break;
                 case 3:
-                    adminService.viewAllProducts();
+                    displayAllProducts();
                     break;
                 case 4:
                     System.out.println("Logging out...");
@@ -46,6 +46,11 @@ public class AdminMenu {
     }
 
     private void displayAllProducts() {
+        if (productService == null) {
+            System.out.println("ProductService is not initialized.");
+            return;
+        }
+
         Product[] products = productService.getAllProducts();
         if (products.length == 0) {
             System.out.println("No products available.");
