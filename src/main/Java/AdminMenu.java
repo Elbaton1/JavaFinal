@@ -3,8 +3,10 @@ import java.util.Scanner;
 public class AdminMenu {
     private AdminService adminService;
 
-    public AdminMenu(AdminService adminService) {
+    // Constructor that accepts both AdminService and ProductService
+    public AdminMenu(AdminService adminService, ProductService productService) {
         this.adminService = adminService;
+        this.productService = productService;
     }
 
     public void showMenu() {
@@ -20,9 +22,9 @@ public class AdminMenu {
             System.out.println("4. Logout ");
             System.out.print("Choose an option: ");
             choice = sc.nextInt();
-            sc.nextLine(); 
+            sc.nextLine(); // Consume newline
 
-            switch(choice) {
+            switch (choice) {
                 case 1:
                     adminService.viewUsers();
                     break;
@@ -35,13 +37,23 @@ public class AdminMenu {
                     adminService.viewAllProducts();
                     break;
                 case 4:
-                    System.out.println(" Logging out...");
+                    System.out.println("Logging out...");
                     break;
                 default:
-                    System.out.println(" Invalid choice! Please try again.");
+                    System.out.println("Invalid choice! Please try again.");
             }
         } while (choice != 4);
     }
 
-    
+    private void displayAllProducts() {
+        Product[] products = productService.getAllProducts();
+        if (products.length == 0) {
+            System.out.println("No products available.");
+        } else {
+            System.out.println("Listing all products:");
+            for (Product product : products) {
+                System.out.println(product);
+            }
+        }
+    }
 }
