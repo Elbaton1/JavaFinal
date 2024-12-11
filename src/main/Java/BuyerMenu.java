@@ -23,7 +23,7 @@ public class BuyerMenu {
 
             switch (choice) {
                 case 1:
-                    productService.getAllProducts();
+                    displayAllProducts();
                     break;
                 case 2:
                     System.out.print("Enter Product ID: ");
@@ -41,4 +41,18 @@ public class BuyerMenu {
             }
         } while (choice != 3);
     }
+
+    private void displayAllProducts() {
+        Product[] products = productService.getAllProducts();
+        if (products.length == 0) {
+            System.out.println("No products available.");
+        } else {
+            System.out.println("Listing all products:");
+            for (Product product : products) {
+                System.out.println(product);
+            }
+        }
+    }
+
+    
 }

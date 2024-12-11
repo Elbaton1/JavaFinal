@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class AdminMenu {
+    private ProductService productService;
     private AdminService adminService;
 
     public AdminMenu(AdminService adminService) {
@@ -32,7 +33,7 @@ public class AdminMenu {
                     adminService.deleteUser(username);
                     break;
                 case 3:
-                    adminService.viewAllProducts();
+                    displayAllProducts();
                     break;
                 case 4:
                     System.out.println(" Logging out...");
@@ -41,5 +42,17 @@ public class AdminMenu {
                     System.out.println(" Invalid choice! Please try again.");
             }
         } while (choice != 4);
+    }
+
+    private void displayAllProducts() {
+        Product[] products = productService.getAllProducts();
+        if (products.length == 0) {
+            System.out.println("No products available.");
+        } else {
+            System.out.println("Listing all products:");
+            for (Product product : products) {
+                System.out.println(product);
+            }
+        }
     }
 }
