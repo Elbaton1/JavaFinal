@@ -10,7 +10,7 @@ public class MainMenu {
         UserDAO userDAO = new UserDAOImpl();
         UserService userService = new UserServiceImpl(userDAO);
         ProductDAO productDAO = new ProductDAOImpl();
-        ProductService productService = new ProductService(productDAO); // Updated to use ProductDAO
+        ProductService productService = new ProductService(productDAO);
         AdminService adminService = new AdminServiceImpl(userService, productService);
 
         int choice;
@@ -43,7 +43,7 @@ public class MainMenu {
                 String role = currentUser.getRole();
                 switch (role) {
                     case "admin":
-                        AdminMenu adminMenu = new AdminMenu(adminService);
+                        AdminMenu adminMenu = new AdminMenu(adminService, productService);
                         adminMenu.showMenu();
                         currentUser = null; // After logout
                         break;
